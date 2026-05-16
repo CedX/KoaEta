@@ -2,7 +2,7 @@
 This method lets you render an [Eta](https://eta.js.org) template as a **string** and send it as HTTP response.
 
 ```js
-import {eta} from "@cedx/koa-eta";
+import {eta} from "@cedx/KoaEta";
 import Koa from "koa";
 import {join} from "node:path";
 

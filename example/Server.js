@@ -1,4 +1,4 @@
-import {eta} from "@cedx/koa-eta";
+import {eta} from "@cedx/KoaEta";
 import Koa from "koa";
 import console from "node:console";
 import {join} from "node:path";

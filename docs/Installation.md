@@ -20,12 +20,12 @@ npm --version
 From a command prompt, run:
 
 ```shell
-npm install @cedx/koa-eta
+npm install @cedx/KoaEta
 ```
 
 ### 2. Import it
 Now in your [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript) code, you can use:
 
 ```js
-import {eta} from "@cedx/koa-eta";
+import {eta} from "@cedx/KoaEta";
 ```

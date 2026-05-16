@@ -5,7 +5,7 @@ A [Koa](https://koajs.com) view renderer based on the [Eta](https://eta.js.org) 
 Install the latest version of **Eta for Koa** with [npm](https://www.npmjs.com) package manager:
 
 ```shell
-npm install @cedx/koa-eta
+npm install @cedx/KoaEta
 ```
 
 For detailed instructions, see the [installation guide](Installation.md).
@@ -15,7 +15,7 @@ This library provides an `eta()` function that you simply invoke by passing the 
 of your Koa application as an argument.
 
 ```js
-import {eta} from "@cedx/koa-eta";
+import {eta} from "@cedx/KoaEta";
 import Koa from "koa";
 
 // Initialize the application.
@@ -43,7 +43,7 @@ These options are directly passed to the `Eta` constructor.
 The most important one is the `views` option that let you specify the path of the directory containing your view templates.
 
 ```js
-import {eta} from "@cedx/koa-eta";
+import {eta} from "@cedx/KoaEta";
 import {join} from "node:path";
 
 // Initialize the template engine.
