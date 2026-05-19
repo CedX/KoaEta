@@ -2,8 +2,8 @@
 A [Koa](https://koajs.com) view renderer based on the [Eta](https://eta.js.org) template engine.
 
 ## Documentation
-- [User guide](https://github.com/CedX/KoaEta/tree/main/docs)
-- [Examples](https://github.com/CedX/KoaEta/tree/main/example)
+- [User guide](https://github.com/CedX/KoaEta/tree/main/Documentation)
+- [Examples](https://github.com/CedX/KoaEta/tree/main/Examples)
 
 ## Development
 - [Git repository](https://github.com/CedX/KoaEta)

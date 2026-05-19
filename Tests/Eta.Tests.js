@@ -1,7 +1,7 @@
 import {equal, ok} from "node:assert/strict";
 import {createServer} from "node:http";
 import {after, before, describe, it} from "node:test";
-import app from "../example/Server.js";
+import app from "../Examples/Server.js";
 import pkg from "../package.json" with {type: "json"};
 
 /**

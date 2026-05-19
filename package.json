@@ -16,7 +16,7 @@
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
 		"@types/koa": "^3.0.2",
-		"@types/node": "^25.9.0",
+		"@types/node": "^25.9.1",
 		"globals": "^17.6.0",
 		"koa": "^3.2.0",
 		"typescript": "^6.0.3",
@@ -26,12 +26,12 @@
 		"node": ">=26.0.0"
 	},
 	"exports": {
-		"types": "./lib/Main.d.ts",
-		"default": "./lib/Main.js"
+		"types": "./Distributable/Main.d.ts",
+		"default": "./Distributable/Main.js"
 	},
 	"files": [
-		"lib/",
-		"src/"
+		"Distributable/",
+		"Sources/"
 	],
 	"keywords": [
 		"eta",

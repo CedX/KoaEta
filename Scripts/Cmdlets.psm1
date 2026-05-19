@@ -28,7 +28,7 @@ function Invoke-ESLint {
 		[string] $Configuration
 	)
 
-	$argumentList = "--cache", "--cache-location", "$PSScriptRoot/../var"
+	$argumentList = "--cache", "--cache-location", "$PSScriptRoot/../Temp"
 	if ($Configuration) { $argumentList += "--config", $Configuration }
 	$argumentList += $Path
 	npx eslint @argumentList
@@ -39,7 +39,8 @@ function Invoke-ESLint {
 	Invokes the Node.js test runner.
 #>
 function Invoke-NodeTest {
-	Start-Process node -ArgumentList "--enable-source-maps", "--test" -Environment @{ NODE_ENV = "test" } -NoNewWindow -Wait
+	$argumentList = "--enable-source-maps", "--test", "$PSScriptRoot/../Tests/**/*.Tests.js"
+	Start-Process node -ArgumentList $argumentList -Environment @{ NODE_ENV = "Testing" } -NoNewWindow -Wait
 }
 
 <#
