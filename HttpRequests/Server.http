@@ -1,9 +1,7 @@
-@url = http://127.0.0.1:3000
-
 ### Renders the view as HTML.
-GET {{url}}/
+GET {{baseUrl}}/
 Accept: text/html
 
 ### Renders the view as PDF.
-GET {{url}}/
+GET {{baseUrl}}/
 Accept: application/pdf
