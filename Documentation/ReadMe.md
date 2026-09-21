@@ -4,7 +4,7 @@ A [Koa](https://koajs.com) view renderer based on the [Eta](https://eta.js.org) 
 ## Quick start
 Install the latest version of **Eta for Koa** with [npm](https://www.npmjs.com) package manager:
 
-```shell
+```powershell
 npm install @cedx/koa-eta
 ```
 
