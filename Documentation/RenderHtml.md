@@ -1,7 +1,7 @@
 # The `ctx.render()` method
 This method lets you render an [Eta](https://eta.js.org) template as a **string** and send it as HTTP response.
 
-```js
+```typescript
 import {eta} from "@cedx/koa-eta";
 import Koa from "koa";
 import {join} from "node:path";
@@ -21,7 +21,7 @@ app.use(async ctx => {
 This method accepts up to three arguments, the first of which is mandatory.
 Its signature is as follows:
 
-```js
+```typescript
 /**
  * @param view - The view name.
  * @param locals - The data that should be made available in the view.
@@ -38,7 +38,7 @@ The view templates can use asynchronous expressions (i.e. `await` statements, or
 When this happens, you must inform the [Eta](https://eta.js.org) engine to render the template asynchronously
 by setting the `async` option to `true`.
 
-```js
+```typescript
 // The "view.eta" template contains asynchronous statements.
 app.use(async ctx => {
   const locals = {message: "Hello World!"};
@@ -55,7 +55,7 @@ or use a different content type if your view template is not in HTML format.
 
 You can do this by setting the `writeResponse` option to `false`.
 
-```js
+```typescript
 // Use a different content type, such as `application/xml` for an XML view.
 app.use(async ctx => {
   const locals = {items: ["one", "two", "three"]};

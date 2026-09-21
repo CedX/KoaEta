@@ -4,7 +4,7 @@ and send it as HTTP response.
 Its signature and usage are basically the same as those of [the `ctx.render()` method](RenderHtml.md),
 except that it returns a [Buffer](https://nodejs.org/api/buffer.html) instead of a string.
 
-```js
+```typescript
 import {eta} from "@cedx/koa-eta";
 import Koa from "koa";
 import {join} from "node:path";
@@ -37,7 +37,7 @@ to the [`BrowserType.launch()`](https://playwright.dev/docs/api/class-browsertyp
 provided by [Playwright](https://playwright.dev).
 For example, use it to customize which browser will be used to render PDF documents.
 
-```js
+```typescript
 // Use Microsoft Edge instead of Chromium.
 eta(app, {
   browser: {channel: "msedge"},
@@ -56,7 +56,7 @@ Other options are available to specifically customize the PDF rendering.
 These options are specified in the `ctx.renderPdf()` call and passed directly to the
 [`Page.pdf()`](https://playwright.dev/docs/api/class-page#page-pdf) method provided by [Playwright](https://playwright.dev).
 
-```js
+```typescript
 app.use(async ctx => {
   const locals = {message: "Hello World!"};
   await ctx.renderPdf("view", locals, {

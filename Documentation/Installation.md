@@ -26,6 +26,6 @@ npm install @cedx/koa-eta
 ### 2. Import it
 Now in your [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript) code, you can use:
 
-```js
+```typescript
 import {eta} from "@cedx/koa-eta";
 ```

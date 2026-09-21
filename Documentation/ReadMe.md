@@ -14,7 +14,7 @@ For detailed instructions, see the [installation guide](Installation.md).
 This library provides an `eta()` function that you simply invoke by passing the instance
 of your Koa application as an argument.
 
-```js
+```typescript
 import {eta} from "@cedx/koa-eta";
 import Koa from "koa";
 
@@ -26,7 +26,7 @@ eta(app);
 This function will add two new methods `render()` and `renderPdf()` to the request context,
 that you can use to render [Eta](https://eta.js.org) view templates.
 
-```js
+```typescript
 // Render the "view.eta" template.
 app.use(ctx => ctx.render("view"));
 ```
@@ -42,7 +42,7 @@ These options are directly passed to the `Eta` constructor.
 
 The most important one is the `views` option that let you specify the path of the directory containing your view templates.
 
-```js
+```typescript
 import {eta} from "@cedx/koa-eta";
 import {join} from "node:path";
 
