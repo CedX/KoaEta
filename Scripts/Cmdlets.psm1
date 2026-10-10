@@ -53,7 +53,7 @@ function Invoke-Mocha {
 
 		$Env:NODE_ENV = "Testing"
 		$testDirectory = Join-Path $scriptRoot "../Tests" -Resolve
-		npx mocha --config $Configuration $testDirectory
+		npx mocha --config $Configuration --file "$testDirectory/Should.js" $testDirectory
 	}
 
 	pwsh -Command $scriptBlock -args $PSScriptRoot, $Configuration

@@ -1,4 +1,3 @@
-import "chai/register-should.js";
 import {createServer} from "node:http";
 import app from "../Examples/Server.js";
 import pkg from "../package.json" with {type: "json"};
