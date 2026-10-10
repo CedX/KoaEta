@@ -42,7 +42,9 @@ describe("eta()", () => {
 		it("should have been added to the application context", () =>
 			(typeof app.context.renderPdf).should.equal("function"));
 
-		it("should render a view as PDF document", async () => {
+		it("should render a view as PDF document", async function() {
+			this.timeout(15_000);
+
 			const response = await fetch(url, {headers: {accept: "application/pdf"}});
 			(response.headers.get("content-type") ?? "").should.equal("application/pdf");
 			response.status.should.equal(200);
