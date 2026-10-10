@@ -1,6 +1,5 @@
-import {equal, ok} from "node:assert/strict";
+import "chai/register-should.js";
 import {createServer} from "node:http";
-import {after, before, describe, it} from "node:test";
 import app from "../Examples/Server.js";
 import pkg from "../package.json" with {type: "json"};
 
@@ -14,42 +13,46 @@ describe("eta()", () => {
 	let url = new URL("http://127.0.0.1:0/");
 	const listenOptions = {host: url.hostname, port: Number(url.port), signal: controller.signal};
 	const server = createServer(app.callback()); // eslint-disable-line @typescript-eslint/no-misused-promises
-	before(() => /** @type {Promise<void>} */ (new Promise(resolve => server.listen(listenOptions, () => {
+	before(done => server.listen(listenOptions, () => {
 		const {address, port} = /** @type {import("node:net").AddressInfo} */ (server.address());
 		url = new URL(`http://${address}:${port}/`);
-		resolve();
-	}))));
+		done();
+	}));
 
-	describe("render()", () => {
+	context("render()", () => {
 		it("should have been added to the application context", () =>
-			ok(typeof app.context.render == "function"));
+			(typeof app.context.render).should.equal("function"));
 
 		it("should render a view as HTML page", async () => {
 			const response = await fetch(url, {headers: {accept: "text/html"}});
-			equal(response.headers.get("content-type"), "text/html; charset=utf-8");
-			equal(response.status, 200);
+			(response.headers.get("content-type") ?? "").should.equal("text/html; charset=utf-8");
+			response.status.should.equal(200);
 
+			/* eslint-disable @typescript-eslint/no-unused-expressions */
 			const body = await response.text();
-			ok(body.startsWith("<!doctype html>"));
-			ok(body.includes("<title>Eta for Koa</title>"));
-			ok(body.includes(`<b>${pkg.version}</b>`));
-			ok(body.trimEnd().endsWith("</html>"))
+			body.startsWith("<!doctype html>").should.be.true;
+			body.should.include("<title>Eta for Koa</title>");
+			body.should.include(`<b>${pkg.version}</b>`);
+			body.trimEnd().endsWith("</html>").should.be.true;
+			/* eslint-enable @typescript-eslint/no-unused-expressions */
 		});
 	});
 
-	describe("renderPdf()", () => {
+	context("renderPdf()", () => {
 		it("should have been added to the application context", () =>
-			ok(typeof app.context.renderPdf == "function"));
+			(typeof app.context.renderPdf).should.equal("function"));
 
 		it("should render a view as PDF document", async () => {
 			const response = await fetch(url, {headers: {accept: "application/pdf"}});
-			equal(response.headers.get("content-type"), "application/pdf");
-			equal(response.status, 200);
+			(response.headers.get("content-type") ?? "").should.equal("application/pdf");
+			response.status.should.equal(200);
 
+			/* eslint-disable @typescript-eslint/no-unused-expressions */
 			const body = await response.text();
-			ok(body.startsWith("%PDF-"));
-			ok(body.includes("/Title (Eta for Koa)"));
-			ok(body.trimEnd().endsWith("%%EOF"));
+			body.startsWith("%PDF-").should.be.true;
+			body.should.include("/Title (Eta for Koa)");
+			body.trimEnd().endsWith("%%EOF").should.be.true;
+			/* eslint-enable @typescript-eslint/no-unused-expressions */
 		});
 	});
 });
