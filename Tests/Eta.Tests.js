@@ -11,9 +11,8 @@ describe("eta()", () => {
 	after(() => controller.abort());
 
 	let url = new URL("http://127.0.0.1:0/");
-	const listenOptions = {host: url.hostname, port: Number(url.port), signal: controller.signal};
 	const server = createServer(app.callback()); // eslint-disable-line @typescript-eslint/no-misused-promises
-	before(done => server.listen(listenOptions, () => {
+	before(done => server.listen({host: url.hostname, port: Number(url.port), signal: controller.signal}, () => {
 		const {address, port} = /** @type {import("node:net").AddressInfo} */ (server.address());
 		url = new URL(`http://${address}:${port}/`);
 		done();
