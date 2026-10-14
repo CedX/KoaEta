@@ -1,5 +1,10 @@
 # Changelog
 
+## Version [2026.10.0](https://github.com/CedX/KoaEta/compare/v6.1.0...v2026.10.0)
+- Breaking change: raised the required [Node.js](https://nodejs.org) version.
+- Switched to a year-based versioning.
+- Updated the package dependencies.
+
 ## Version [6.1.0](https://github.com/CedX/KoaEta/compare/v6.0.0...v6.1.0)
 - Updated the package dependencies.
 

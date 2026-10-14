@@ -7,7 +7,7 @@
 	"name": "@cedx/koa-eta",
 	"repository": "CedX/KoaEta",
 	"type": "module",
-	"version": "6.1.0",
+	"version": "2026.10.0",
 	"allowScripts": {
 		"playwright-chromium": true
 	},
