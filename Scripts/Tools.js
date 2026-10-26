@@ -5,6 +5,9 @@ import {join} from "node:path";
 import process from "node:process";
 import pkg from "../package.json" with {type: "json"};
 
+// Sets the name of the environment.
+process.env.NODE_ENV = "Testing";
+
 /**
  * Cleans the directory located at the specified path.
  * @param {string} path The path of the directory to clean.

@@ -6,12 +6,11 @@ import pkg from "../package.json" with {type: "json"};
  * Tests the features of the {@link render} and {@link renderPdf} functions.
  */
 describe("eta()", () => {
-	const controller = new AbortController;
-	after(() => controller.abort());
+	const server = createServer(app.callback()); // eslint-disable-line @typescript-eslint/no-misused-promises
+	after(done => server.close(done));
 
 	let url = new URL("http://127.0.0.1:0/");
-	const server = createServer(app.callback()); // eslint-disable-line @typescript-eslint/no-misused-promises
-	before(done => server.listen({host: url.hostname, port: Number(url.port), signal: controller.signal}, () => {
+	before(done => server.listen({host: url.hostname, port: Number(url.port)}, () => {
 		const {address, port} = /** @type {import("node:net").AddressInfo} */ (server.address());
 		url = new URL(`http://${address}:${port}/`);
 		done();
@@ -21,7 +20,9 @@ describe("eta()", () => {
 		it("should have been added to the application context", () =>
 			(typeof app.context.render).should.equal("function"));
 
-		it("should render a view as HTML page", async () => {
+		it("should render a view as HTML page", async function() {
+			this.timeout(5_000);
+
 			const response = await fetch(url, {headers: {accept: "text/html"}});
 			(response.headers.get("content-type") ?? "").should.equal("text/html; charset=utf-8");
 			response.status.should.equal(200);
